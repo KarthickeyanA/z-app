@@ -1,0 +1,65 @@
+
+/* body {
+    background: #555;
+  } */
+
+  .content {
+    max-width: 300px;
+    margin: auto;
+    background: white;
+    padding: 10px;  
+    margin-top: 300px;
+  }
+
+  .button-space {
+    margin-left: 20px;
+  }
+  
+  .required {
+    color: red;
+}
+.upload-content {
+  width: 440px; 
+  height: 240px;
+  border-style: groove;
+  border-color: black;
+  border-width: thin;
+}
+
+
+img.refImage {
+  max-width: 50px;
+  max-height: 50px;
+  padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+@supports (object-fit: cover) {
+  img.refImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+}
+
+.container-data {
+  width: 350px; 
+  height: 430px;
+  border-style: groove;
+  border-color: black;
+  border-width: thin;
+  cursor: pointer;
+}
+
+.column {
+  float: left;
+  width: 20%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

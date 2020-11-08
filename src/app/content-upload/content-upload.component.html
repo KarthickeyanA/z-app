@@ -1,0 +1,41 @@
+<div class="upload-content">
+    <br>
+    <div>
+        <label style="margin-left: 5px;">Content Type</label>
+        <select [(ngModel)]="contentType" style="margin-left: 14px;">
+            <option value="video">Video</option>
+        </select>
+    </div>
+    <div>
+        <label style="margin-left: 5px;">Content Name</label>
+        <input style="margin-left: 7px;" type="text" [(ngModel)]="contentName" required/>
+    </div>
+    <br>
+    <div>
+        <label style="margin-left: 5px;">Description</label>
+        <input style="margin-left: 25px;" type="text" [(ngModel)]="description" required/>
+    </div>
+    <div>
+        <label style="margin-left: 5px;">Genre</label>
+        <select style="margin-left: 61px;" [(ngModel)]="contentGenre">
+            <option value="Drama">Drama</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Romance">Romance</option>
+        </select>
+    </div>
+    <div>
+        <label style="margin-left: 5px;">Language</label>
+        <select style="margin-left: 36px;" [(ngModel)]="language">
+            <option value="English">English</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Hindi">Hindi</option>
+        </select>
+    </div>
+    <br>
+    <input style="margin-left: 5px;" type="file" (change)="fileUpload($event)" id="myFile" name="filename" accept="video/mp4"> <img class="refImage" id="referenceImage">
+    <!-- <div></div> -->
+    <input style="margin-left: 350px;" type="submit" (click)="onSubmit()">
+    <br>
+    <br>
+</div>
+<br>

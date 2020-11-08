@@ -1,0 +1,40 @@
+<div class="loginBorder">
+  <div *ngIf="showLoginForm" class="content">
+    <div>
+      <label>Username</label>
+      <input style="margin-left: 7px;" type="text" [(ngModel)]="loginUsername" required />
+    </div>
+    <br>
+    <div>
+      <label>Password</label>
+      <input style="margin-left: 11px;" type="password" [(ngModel)]="loginPassword" required />
+    </div>
+    <br>
+    <div>
+      <button style="margin-left: 116px;" (click)="onLogin()">Login </button>
+      <button class="button-space" (click)="onSignUp()"> SignUp </button>
+    </div>
+  </div>
+
+
+  <div *ngIf="showSignUpForm" class="content">
+    <div>
+      <label>Username</label>
+      <input style="margin-left: 7px;" type="text" [(ngModel)]='signUpUsername' required />
+    </div>
+    <br>
+    <div>
+      <label>Password</label>
+      <input style="margin-left: 11px;" type="password" [(ngModel)]='signUpPassword' required />
+    </div>
+    <br>
+    <div>
+      <label>E-mail</label>
+      <input style="margin-left: 28px;" type="text" [(ngModel)]='signUpEmail' required />
+    </div>
+    <br>
+    <div>
+      <button style="margin-left: 191px;" (click)="onSubmit()"> Submit </button>
+    </div>
+  </div>
+</div>

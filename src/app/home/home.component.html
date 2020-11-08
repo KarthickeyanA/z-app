@@ -1,0 +1,71 @@
+<div>
+    <label>Login User: {{sessionUser.username}}</label>
+    <button style="margin-left: 20px;" (click)="logout()">Logout</button>
+</div>
+<div>
+    <label>User Mail: {{sessionUser.email}}</label>
+</div>
+<br>
+<div *ngIf="isAdminUser"><button (click)="openUploadModel(true)">Upload New Content</button> <button
+        *ngIf='showContentUpload' (click)="openUploadModel(false)" style="margin-left: 20px;">close</button></div> <br>
+
+<app-content-upload (collections)="getData($event)" *ngIf='showContentUpload'></app-content-upload>
+
+<div>
+    <label>Filters: </label>
+    <br>
+    <div>
+        <label>Genre</label>
+        <select (change)="onSearch('genre')" [(ngModel)]="genre" name="genre" id="genre">
+            <option value="Select">Select</option>
+            <option value="Drama">Drama</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Romance">Romance</option>
+        </select>
+        <label style="margin-left: 20px;">Languages</label>
+        <select (change)="onSearch('language')" [(ngModel)]="language" name="languages" id="languages">
+            <option value="Select">Select</option>
+            <option value="English">English</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Hindi">Hindi</option>
+        </select>
+        <label style="margin-left: 20px;">Ratings</label>
+        <select  [(ngModel)]="ratings" name="ratings" id="ratings" (change)="onSearch('ratings')">
+            <option value="Select">Select</option>
+            <option value="1-3">1-3</option>
+            <option value="2-4">2-4</option>
+            <option value="3-5">3-5</option>
+        </select>
+        <label  style="margin-left: 20px;">Recently Added</label>
+        <input type="checkbox" [(ngModel)]="recentAdd" (change)="sortByDate()"/>
+
+    </div>
+</div>
+<br>
+<div class="row" *ngIf="filteredData">
+    <div style="margin-left: 20px;" class="container-data column" *ngFor="let data of filteredData; let i = index">
+        <br>
+        <img style="margin-left: 20px;max-width: 200px;max-height: 200px;" [src]="data.referenceImage">
+        <br>
+        <label style="margin-left: 20px;">Name: {{data.name}}</label>
+        <br>
+        <label style="margin-left: 20px;">Description: {{data.description}}</label>
+        <p style="margin-left: 20px;">{{data.genre}}, {{data.language}}</p>
+        <p style="margin-left: 20px;">Ratings</p>
+        <span style="margin-left: 20px;font-family: fantasy;font-size: 18px;" title="Give Ratings"
+            (click)="addRating(1, data.contentId)">+</span><label style="margin-left: 40px;">*: {{data.ratings['1']}}
+            users </label><br>
+        <span style="margin-left: 20px;font-family: fantasy;font-size: 18px;" title="Give Ratings"
+            (click)="addRating(2, data.contentId)">+</span><label style="margin-left: 40px;">**: {{data.ratings['2']}}
+            users </label><br>
+        <span style="margin-left: 20px;font-family: fantasy;font-size: 18px;" title="Give Ratings"
+            (click)="addRating(3, data.contentId)">+</span><label style="margin-left: 40px;">***: {{data.ratings['3']}}
+            users</label><br>
+        <span style="margin-left: 20px;font-family: fantasy;font-size: 18px;" title="Give Ratings"
+            (click)="addRating(4, data.contentId)">+</span><label style="margin-left: 40px;">****: {{data.ratings['4']}}
+            users</label><br>
+        <span style="margin-left: 20px;font-family: fantasy;font-size: 18px;" title="Give Ratings"
+            (click)="addRating(5, data.contentId)">+</span><label style="margin-left: 40px;">*****:
+            {{data.ratings['5']}} users</label><br>
+    </div>
+</div>
